@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Агентура — как бот ведёт клиента риелтора</title>
 <meta name="description" content="Сценарии работы Агентуры: как AI-помощник держит контакт с клиентом весь цикл сделки и сообщает риелтору, когда пора звонить.">
+<link rel="canonical" href="https://sbabahnul-bot.github.io/agentura-cases/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:url" content="https://sbabahnul-bot.github.io/agentura-cases/">
+<meta property="og:title" content="Агентура: клиент не пропадёт даже через 3 месяца">
+<meta property="og:description" content="Как AI-помощник держит контакт с клиентом риелтора весь цикл сделки и подсказывает, когда пора звонить. 14 дней бесплатно.">
+<meta name="twitter:card" content="summary">
 <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-50 text-slate-800 antialiased">
@@ -123,6 +130,35 @@
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="bg-white py-16">
+  <div class="mx-auto max-w-3xl px-4">
+    <h2 class="text-3xl font-bold">Частые вопросы</h2>
+    <div class="mt-8 space-y-3">
+      <details class="rounded-xl bg-slate-50 p-4">
+        <summary class="cursor-pointer font-semibold">Бот заменит меня в общении с клиентом?</summary>
+        <p class="mt-2 text-slate-600">Нет. Бот не даёт контакту остыть и подсказывает, когда клиент готов. Показы, переговоры и закрытие сделки остаются за вами. На вопросы про цену и сроки бот отвечает, что решение за риелтором, и передаёт их вам.</p>
+      </details>
+      <details class="rounded-xl bg-slate-50 p-4">
+        <summary class="cursor-pointer font-semibold">Как начать и сколько это займёт?</summary>
+        <p class="mt-2 text-slate-600">Откройте бота в Telegram, добавьте клиента (имя, бюджет, район, пожелания) и отправьте ему личную ссылку. Настройка занимает около двух минут, ничего устанавливать не нужно.</p>
+      </details>
+      <details class="rounded-xl bg-slate-50 p-4">
+        <summary class="cursor-pointer font-semibold">Что будет после 14 бесплатных дней?</summary>
+        <p class="mt-2 text-slate-600">Выберете тариф: Старт (1 990 ₽ в месяц, до 15 активных клиентов) или Про (3 990 ₽ в месяц, до 50). Условия оплаты уточните у разработчика в Telegram.</p>
+      </details>
+      <details class="rounded-xl bg-slate-50 p-4">
+        <summary class="cursor-pointer font-semibold">Клиенту нужно что-то устанавливать или регистрироваться?</summary>
+        <p class="mt-2 text-slate-600">Клиент общается с ботом по вашей личной ссылке в Telegram. Для вас это обычная переписка в мессенджере.</p>
+      </details>
+      <details class="rounded-xl bg-slate-50 p-4">
+        <summary class="cursor-pointer font-semibold">Как хранятся данные клиентов?</summary>
+        <p class="mt-2 text-slate-600">История переписки сохраняется в архиве сделок. Подробности о хранении и защите данных уточните у разработчика: <a class="underline" href="https://t.me/sbahmetev">@sbahmetev</a>.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
 <!-- CTA + FOOTER -->
 <section class="bg-blue-900 py-14 text-center text-white">
   <h2 class="text-3xl font-bold">Попробуйте на своих клиентах</h2>
@@ -133,6 +169,20 @@
   © 2026 Агентура · Разработчик: <a class="underline" href="https://t.me/sbahmetev">@sbahmetev</a>
 </footer>
 
+<!-- ANALYTICS: впиши номер счётчика Яндекс Метрики в YM_ID. 0 = выключено, ничего не грузится. -->
+<script>
+  var YM_ID = 0;
+  if (YM_ID) {
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+    ym(YM_ID,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:false});
+    document.addEventListener("click",function(e){
+      var a=e.target.closest("a[href*='t.me/yaro_rieltor_bot']");
+      if(a){ym(YM_ID,"reachGoal","open_bot");}
+    });
+  }
+</script>
 <!-- SECTIONS -->
 
 </body>
