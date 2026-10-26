@@ -169,20 +169,21 @@
   © 2026 Агентура · Разработчик: <a class="underline" href="https://t.me/sbahmetev">@sbahmetev</a>
 </footer>
 
-<!-- ANALYTICS: впиши номер счётчика Яндекс Метрики в YM_ID. 0 = выключено, ничего не грузится. -->
+<!-- ANALYTICS: Яндекс Метрика. YM_ID = 0 выключает счётчик, ничего не грузится. -->
 <script>
-  var YM_ID = 0;
+  var YM_ID = 113810926;
   if (YM_ID) {
     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
     m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
     (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
-    ym(YM_ID,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:false});
+    ym(YM_ID,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
     document.addEventListener("click",function(e){
       var a=e.target.closest("a[href*='t.me/yaro_rieltor_bot']");
       if(a){ym(YM_ID,"reachGoal","open_bot");}
     });
   }
 </script>
+<noscript><div><img src="https://mc.yandex.ru/watch/113810926" style="position:absolute;left:-9999px" alt=""></div></noscript>
 <!-- SECTIONS -->
 
 </body>
