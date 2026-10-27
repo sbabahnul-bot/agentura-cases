@@ -49,7 +49,18 @@
   @keyframes m3 { 0%,32% { opacity: 0; transform: translateY(8px); } 35%,92% { opacity: 1; transform: none; } 97%,100% { opacity: 0; } }
   @keyframes m4 { 0%,50% { opacity: 0; transform: translateY(8px); } 53%,92% { opacity: 1; transform: none; } 97%,100% { opacity: 0; } }
   @keyframes m5 { 0%,64% { opacity: 0; transform: translateY(8px); } 67%,92% { opacity: 1; transform: none; } 97%,100% { opacity: 0; } }
-  @media (prefers-reduced-motion: reduce) { .loop > .msg { animation: none; opacity: 1; transform: none; } }
+  .scene { perspective: 1600px; padding: 24px 0 40px; }
+  .iso { position: relative; transform-style: preserve-3d; transform: rotateX(14deg) rotateY(-32deg) rotateZ(4deg); transition: transform .6s ease; }
+  .iso:hover { transform: rotateX(8deg) rotateY(-16deg) rotateZ(2deg); }
+  .iso .body { position: relative; transform-style: preserve-3d; }
+  .iso .body::before, .iso .body::after { content: ""; position: absolute; inset: 0; border-radius: 2.5rem; background: #1b1f3b; }
+  .iso .body::before { transform: translateZ(-8px); }
+  .iso .body::after { transform: translateZ(-16px); background: #0b0d1c; box-shadow: 40px 60px 90px rgba(124,58,237,.55); }
+  .float-card { position: absolute; left: -34px; bottom: 46px; width: 82%; transform: translateZ(90px); box-shadow: 0 24px 40px -10px rgba(0,0,0,.55); }
+  .float-card.msg { animation: 14s ease infinite mf; }
+  @keyframes mf { 0%,64% { opacity: 0; transform: translateZ(40px); } 67%,92% { opacity: 1; transform: translateZ(90px); } 97%,100% { opacity: 0; transform: translateZ(90px); } }
+  @media (max-width: 767px) { .iso { transform: rotateX(10deg) rotateY(-22deg) rotateZ(3deg); } .float-card { left: -10px; } }
+  @media (prefers-reduced-motion: reduce) { .loop > .msg, .float-card.msg { animation: none; opacity: 1; } .loop > .msg { transform: none; } .float-card.msg { transform: translateZ(90px); } .iso { transition: none; } }
 </style>
 </head>
 <body class="bg-paper font-sans text-ink antialiased">
@@ -72,8 +83,9 @@
     </div>
     <p class="mt-4 text-sm text-slate-400">14 дней бесплатно · настройка около 2 минут · ничего устанавливать не нужно</p>
    </div>
-   <div class="mx-auto w-full max-w-[320px]">
-    <div class="rounded-[2.5rem] bg-black p-3 shadow-[0_30px_80px_-10px_rgba(124,58,237,.7)] ring-1 ring-white/20">
+   <div class="scene mx-auto w-full max-w-[320px]">
+    <div class="iso">
+    <div class="body rounded-[2.5rem] bg-black p-3 ring-1 ring-white/20">
      <div class="overflow-hidden rounded-[2rem] bg-white">
       <div class="flex items-center gap-3 bg-tg-dark px-4 py-3 text-white">
         <img src="avatar.jpg" width="36" height="36" alt="Агентура" class="h-9 w-9 rounded-full object-cover ring-2 ring-white/40">
@@ -84,9 +96,10 @@
         <p class="msg max-w-[85%] self-end rounded-2xl rounded-br-sm bg-[#E3F2FD] p-2.5 shadow-sm">Да, ещё ищем. Теперь готовы и до 8,5 млн.<span class="mt-1 block text-right text-[10px] text-slate-400">23:42 ✓✓</span></p>
         <p class="msg max-w-[85%] self-end rounded-2xl rounded-br-sm bg-[#E3F2FD] p-2.5 shadow-sm">А когда можно посмотреть вариант на Ленина?<span class="mt-1 block text-right text-[10px] text-slate-400">23:43 ✓✓</span></p>
         <p class="msg max-w-[85%] self-start rounded-2xl rounded-bl-sm bg-white p-2.5 shadow-sm">Это вопрос к вашему риелтору, передаю ему.<span class="mt-1 block text-right text-[10px] text-slate-400">23:43</span></p>
-        <p class="msg mt-auto rounded-xl border-l-4 border-signal bg-amber-50 p-3 shadow"><b class="block text-xs uppercase tracking-wide text-amber-700">Вам · пора звонить</b>Клиент оживился, бюджет вырос до 8,5 млн.</p>
       </div>
      </div>
+    </div>
+    <p class="msg float-card rounded-xl border-l-4 border-signal bg-amber-50 p-3 text-[13px] leading-snug text-ink"><b class="block text-xs uppercase tracking-wide text-amber-700">Вам · пора звонить</b>Клиент оживился, бюджет вырос до 8,5 млн.</p>
     </div>
     <p class="mt-3 text-center text-xs text-slate-400">Демо-диалог, не переписка реальных клиентов</p>
    </div>
