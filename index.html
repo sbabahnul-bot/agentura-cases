@@ -25,12 +25,17 @@
   tailwind.config = {
     theme: { extend: {
       fontFamily: { sans: ['Inter','system-ui','sans-serif'], display: ['Manrope','Inter','sans-serif'] },
-      colors: { tg: '#2AABEE', 'tg-dark': '#1E96D6', ink: '#0F1B2D', night: '#0B1F33', paper: '#F4F7FA', signal: '#FFB020' }
+      colors: { tg: '#2AABEE', 'tg-dark': '#1E96D6', ink: '#0F1B2D', night: '#090D1F', paper: '#F4F7FA', signal: '#FFB020', violet: '#7C3AED', lime: '#C6F432' }
     } }
   }
 </script>
 <style>
   h1,h2,h3 { font-family: Manrope, Inter, sans-serif; }
+  .hero-bg { background: radial-gradient(60% 50% at 85% 20%, rgba(124,58,237,.55), transparent 70%), radial-gradient(50% 50% at 5% 90%, rgba(42,171,238,.45), transparent 70%), #090D1F; }
+  .grad-text { background: linear-gradient(90deg,#2AABEE,#A78BFA 60%,#FF7AC6); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .btn-main { background: linear-gradient(135deg,#FFB020,#FF6B3D); color: #1a0f00; box-shadow: 0 10px 30px -8px rgba(255,140,40,.7); }
+  .btn-main:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .glass { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); }
   .msg { opacity: 0; transform: translateY(8px); animation: msgin .4s ease forwards; }
   @keyframes msgin { to { opacity: 1; transform: none; } }
   .loop > .msg { animation: 14s ease infinite; }
@@ -49,27 +54,32 @@
 </head>
 <body class="bg-paper font-sans text-ink antialiased">
 
+<!-- TOP BAR -->
+<div class="bg-night text-center text-sm text-slate-300">
+  <a href="#" id="bureau-link" class="block px-4 py-2 hover:text-white">Проект <b class="text-white">Бюро цифровых сотрудников</b> <span class="text-lime">→</span></a>
+</div>
+
 <!-- HERO -->
-<header class="bg-paper">
-  <div class="mx-auto grid max-w-5xl items-center gap-10 px-4 py-14 md:grid-cols-2 md:py-20">
+<header class="hero-bg text-white">
+  <div class="mx-auto grid max-w-5xl items-center gap-10 px-4 py-14 md:grid-cols-2 md:py-24">
    <div class="text-center md:text-left">
-    <p class="text-sm font-semibold uppercase tracking-widest text-tg-dark">Агентура · AI-помощник для риелторов</p>
-    <h1 class="mt-4 text-4xl font-extrabold leading-tight md:text-6xl">Клиент не пропадёт. Даже через&nbsp;3&nbsp;месяца.</h1>
-    <p class="mt-6 max-w-xl text-lg text-slate-600 max-md:mx-auto">Бот сам пишет молчащим клиентам, помнит бюджет и район, а вам присылает одно сообщение: пора звонить.</p>
+    <p class="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1 text-sm font-semibold text-lime">Агентура · AI-помощник для риелторов</p>
+    <h1 class="mt-5 text-5xl font-extrabold leading-[1.05] md:text-7xl">Клиент не пропадёт. <span class="grad-text">Даже через&nbsp;3&nbsp;месяца.</span></h1>
+    <p class="mt-6 max-w-xl text-lg text-slate-300 max-md:mx-auto">Бот сам пишет молчащим клиентам, помнит бюджет и район, а вам присылает одно сообщение: <b class="text-signal">пора звонить</b>.</p>
     <div class="mt-8 flex flex-col items-center gap-3 sm:flex-row md:justify-start max-md:justify-center">
-      <a href="https://t.me/yaro_rieltor_bot" class="rounded-xl bg-tg-dark px-8 py-3 font-bold text-white shadow-lg shadow-tg/30 hover:bg-tg">Открыть бота в Telegram</a>
-      <a href="#scenarios" class="px-4 py-3 font-semibold text-ink underline decoration-tg decoration-2 underline-offset-4">Смотреть сценарии</a>
+      <a href="https://t.me/yaro_rieltor_bot" class="btn-main rounded-2xl px-8 py-4 text-lg font-extrabold transition">Открыть бота в Telegram</a>
+      <a href="#scenarios" class="px-4 py-3 font-semibold text-white underline decoration-lime decoration-2 underline-offset-4">Смотреть сценарии</a>
     </div>
-    <p class="mt-4 text-sm text-slate-500">14 дней бесплатно · настройка около 2 минут · ничего устанавливать не нужно</p>
+    <p class="mt-4 text-sm text-slate-400">14 дней бесплатно · настройка около 2 минут · ничего устанавливать не нужно</p>
    </div>
    <div class="mx-auto w-full max-w-[320px]">
-    <div class="rounded-[2.5rem] bg-night p-3 shadow-2xl ring-1 ring-black/10">
+    <div class="rounded-[2.5rem] bg-black p-3 shadow-[0_30px_80px_-10px_rgba(124,58,237,.7)] ring-1 ring-white/20">
      <div class="overflow-hidden rounded-[2rem] bg-white">
       <div class="flex items-center gap-3 bg-tg-dark px-4 py-3 text-white">
         <span class="flex h-9 w-9 items-center justify-center rounded-full bg-white/25 font-display font-extrabold">А</span>
         <div><p class="text-sm font-semibold leading-tight">Агентура</p><p class="text-xs text-white/80">бот</p></div>
       </div>
-      <div class="loop flex min-h-[380px] flex-col gap-2 bg-[#E8EEF3] p-3 text-[13px] leading-snug">
+      <div class="loop flex min-h-[380px] flex-col gap-2 bg-[#E8EEF3] p-3 text-[13px] leading-snug text-ink">
         <p class="msg max-w-[85%] self-start rounded-2xl rounded-bl-sm bg-white p-2.5 shadow-sm">Добрый день! Вспомнил про ваш поиск двушки. Актуально ещё?<span class="mt-1 block text-right text-[10px] text-slate-400">23:40</span></p>
         <p class="msg max-w-[85%] self-end rounded-2xl rounded-br-sm bg-[#E3F2FD] p-2.5 shadow-sm">Да, ещё ищем. Теперь готовы и до 8,5 млн.<span class="mt-1 block text-right text-[10px] text-slate-400">23:42 ✓✓</span></p>
         <p class="msg max-w-[85%] self-end rounded-2xl rounded-br-sm bg-[#E3F2FD] p-2.5 shadow-sm">А когда можно посмотреть вариант на Ленина?<span class="mt-1 block text-right text-[10px] text-slate-400">23:43 ✓✓</span></p>
@@ -84,10 +94,10 @@
 </header>
 
 <!-- PROBLEM -->
-<section class="bg-night py-16 text-center text-white md:py-24">
+<section class="bg-gradient-to-br from-violet to-tg-dark py-16 text-center text-white md:py-24">
   <div class="mx-auto max-w-3xl px-4">
-    <p class="font-display text-3xl font-extrabold leading-tight md:text-5xl">Клиент замолчал на&nbsp;12-й день. <span class="text-signal">Вы узнали на&nbsp;40-й.</span></p>
-    <p class="mx-auto mt-6 max-w-xl text-lg text-slate-300">Сделка длится 3–6 месяцев. Вы заняты другими, писать «ну что, надумали?» неловко, а конкурент оказывается рядом в тот момент, когда клиент созрел.</p>
+    <p class="font-display text-3xl font-extrabold leading-tight md:text-5xl">Клиент замолчал на&nbsp;12-й день. <span class="text-lime">Вы узнали на&nbsp;40-й.</span></p>
+    <p class="mx-auto mt-6 max-w-xl text-lg text-white/85">Сделка длится 3–6 месяцев. Вы заняты другими, писать «ну что, надумали?» неловко, а конкурент оказывается рядом в тот момент, когда клиент созрел.</p>
   </div>
 </section>
 
@@ -96,68 +106,68 @@
   <div class="mx-auto max-w-5xl px-4">
     <h2 class="text-3xl font-extrabold md:text-4xl">Как это работает</h2>
     <ol class="mt-8 grid gap-6 md:grid-cols-3">
-      <li><span class="text-4xl font-extrabold text-tg-dark">1</span><h3 class="mt-2 font-semibold">Добавляете клиента</h3><p class="mt-1 text-slate-600">Имя, бюджет, район, пожелания. В ответ бот даёт личную ссылку, её отправляете клиенту в мессенджер.</p></li>
-      <li><span class="text-4xl font-extrabold text-tg-dark">2</span><h3 class="mt-2 font-semibold">Бот ведёт диалог</h3><p class="mt-1 text-slate-600">Помнит пожелания, уточняет детали, сам пишет тёплое сообщение, если клиент надолго замолчал.</p></li>
-      <li><span class="text-4xl font-extrabold text-tg-dark">3</span><h3 class="mt-2 font-semibold">Вы получаете сигнал</h3><p class="mt-1 text-slate-600">Клиент оживился (3 и более сообщений за неделю), и вам приходит уведомление: пора звонить.</p></li>
+      <li class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200"><span class="grad-text text-6xl font-extrabold">1</span><h3 class="mt-2 font-semibold">Добавляете клиента</h3><p class="mt-1 text-slate-600">Имя, бюджет, район, пожелания. В ответ бот даёт личную ссылку, её отправляете клиенту в мессенджер.</p></li>
+      <li class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200"><span class="grad-text text-6xl font-extrabold">2</span><h3 class="mt-2 font-semibold">Бот ведёт диалог</h3><p class="mt-1 text-slate-600">Помнит пожелания, уточняет детали, сам пишет тёплое сообщение, если клиент надолго замолчал.</p></li>
+      <li class="rounded-2xl bg-white p-6 shadow-lg ring-1 ring-slate-200"><span class="grad-text text-6xl font-extrabold">3</span><h3 class="mt-2 font-semibold">Вы получаете сигнал</h3><p class="mt-1 text-slate-600">Клиент оживился (3 и более сообщений за неделю), и вам приходит уведомление: пора звонить.</p></li>
     </ol>
     <p class="mt-6 text-sm text-slate-500">Закрытие сделки остаётся за вами. Бот только не даёт контакту остыть.</p>
   </div>
 </section>
 
 <!-- SCENARIOS -->
-<section id="scenarios" class="mx-auto max-w-5xl px-4 py-16">
-  <h2 class="text-3xl font-extrabold md:text-4xl">Три сценария из жизни риелтора</h2>
-  <p class="mt-2 text-sm text-slate-500">Диалоги составлены для демонстрации и показывают логику бота. Это не переписка реальных клиентов.</p>
+<section id="scenarios" class="bg-night text-white"><div class="mx-auto max-w-5xl px-4 py-16 md:py-20">
+  <h2 class="text-3xl font-extrabold md:text-5xl">Три сценария из жизни <span class="grad-text">риелтора</span></h2>
+  <p class="mt-2 text-sm text-slate-400">Диалоги составлены для демонстрации и показывают логику бота. Это не переписка реальных клиентов.</p>
   <div class="mt-8 grid gap-6 md:grid-cols-3">
-    <article class="flex flex-col rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+    <article class="glass flex flex-col rounded-3xl p-5">
       <span class="self-start rounded-full bg-blue-100 text-blue-800 px-3 py-1 text-xs font-semibold">Покупатель замолчал</span>
       <h3 class="mt-3 text-lg font-bold">Две недели тишины</h3>
-      <p class="mt-1 text-slate-600">Клиент искал двушку до 8 млн и пропал. Бот пишет сам, не дожидаясь вашего звонка.</p>
-      <div class="mt-4 flex flex-1 flex-col gap-2 rounded-xl bg-[#E8EEF3] p-3 text-base leading-snug">
+      <p class="mt-1 text-slate-300">Клиент искал двушку до 8 млн и пропал. Бот пишет сам, не дожидаясь вашего звонка.</p>
+      <div class="mt-4 flex flex-1 flex-col gap-2 rounded-xl bg-[#E8EEF3] p-3 text-base leading-snug text-ink">
         <p class="max-w-[90%] self-start rounded-2xl rounded-bl-sm bg-white p-3 shadow-sm">Добрый день! Вспомнил про ваш поиск двушки. Появилось пара вариантов в районе, который вам нравился. Актуально ещё?</p>
         <p class="max-w-[90%] self-end rounded-2xl rounded-br-sm bg-[#E3F2FD] p-3 shadow-sm">Да, ещё ищем. Но теперь готовы рассмотреть и до 8,5.</p>
         <p class="mt-1 rounded-xl border-l-4 border-signal bg-amber-50 p-3 text-sm shadow"><b class="block text-xs uppercase tracking-wide text-amber-700">Вам</b>бюджет клиента обновлён, контакт снова тёплый.</p>
       </div>
     </article>
-    <article class="flex flex-col rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+    <article class="glass flex flex-col rounded-3xl p-5">
       <span class="self-start rounded-full bg-amber-100 text-amber-800 px-3 py-1 text-xs font-semibold">Пора звонить</span>
       <h3 class="mt-3 text-lg font-bold">Клиент оживился</h3>
-      <p class="mt-1 text-slate-600">За неделю клиент написал боту несколько раз и начал спрашивать про сроки.</p>
-      <div class="mt-4 flex flex-1 flex-col gap-2 rounded-xl bg-[#E8EEF3] p-3 text-base leading-snug">
+      <p class="mt-1 text-slate-300">За неделю клиент написал боту несколько раз и начал спрашивать про сроки.</p>
+      <div class="mt-4 flex flex-1 flex-col gap-2 rounded-xl bg-[#E8EEF3] p-3 text-base leading-snug text-ink">
         <p class="max-w-[90%] self-end rounded-2xl rounded-br-sm bg-[#E3F2FD] p-3 shadow-sm">А когда можно посмотреть вариант на Ленина?</p>
         <p class="max-w-[90%] self-start rounded-2xl rounded-bl-sm bg-white p-3 shadow-sm">Это уже вопрос к вашему риелтору, он подскажет точное время. Передаю ему.</p>
         <p class="mt-1 rounded-xl border-l-4 border-signal bg-amber-50 p-3 text-sm shadow"><b class="block text-xs uppercase tracking-wide text-amber-700">Вам</b>клиент активен (3+ сообщений за неделю). Самое время позвонить.</p>
       </div>
     </article>
-    <article class="flex flex-col rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+    <article class="glass flex flex-col rounded-3xl p-5">
       <span class="self-start rounded-full bg-purple-100 text-purple-800 px-3 py-1 text-xs font-semibold">Режим продавца</span>
       <h3 class="mt-3 text-lg font-bold">Квартира на рынке два месяца</h3>
-      <p class="mt-1 text-slate-600">Продавец нервничает из-за тишины. Бот поддерживает связь, пока вы заняты.</p>
-      <div class="mt-4 flex flex-1 flex-col gap-2 rounded-xl bg-[#E8EEF3] p-3 text-base leading-snug">
+      <p class="mt-1 text-slate-300">Продавец нервничает из-за тишины. Бот поддерживает связь, пока вы заняты.</p>
+      <div class="mt-4 flex flex-1 flex-col gap-2 rounded-xl bg-[#E8EEF3] p-3 text-base leading-snug text-ink">
         <p class="max-w-[90%] self-end rounded-2xl rounded-br-sm bg-[#E3F2FD] p-3 shadow-sm">Показов давно не было, может, снизить цену?</p>
         <p class="max-w-[90%] self-start rounded-2xl rounded-bl-sm bg-white p-3 shadow-sm">Понимаю беспокойство. Решение по цене лучше принять вместе с вашим риелтором, я передам ему ваш вопрос.</p>
         <p class="mt-1 rounded-xl border-l-4 border-signal bg-amber-50 p-3 text-sm shadow"><b class="block text-xs uppercase tracking-wide text-amber-700">Вам</b>продавец сомневается в цене, стоит обсудить.</p>
       </div>
     </article>
   </div>
-</section>
+</div></section>
 
 <!-- FEATURES -->
-<section class="bg-white py-16">
+<section class="bg-white py-16 md:py-20">
   <div class="mx-auto max-w-5xl px-4">
-    <h2 class="text-3xl font-extrabold md:text-4xl">Что умеет Агентура</h2>
+    <h2 class="text-3xl font-extrabold md:text-5xl">Что умеет <span class="grad-text">Агентура</span></h2>
     <ul class="mt-8 grid gap-4 sm:grid-cols-2">
-      <li class="rounded-xl bg-paper p-5"><b class="font-display">Память о клиенте.</b> Бюджет, район, тип жилья и пожелания учитываются в каждом разговоре. Вся история сохраняется в архиве сделок.</li>
-      <li class="rounded-xl bg-paper p-5"><b class="font-display">Детектор готовности.</b> 3 и более сообщений за неделю, и вам приходит уведомление.</li>
-      <li class="rounded-xl bg-paper p-5"><b class="font-display">Пишет первым.</b> Если клиент долго молчит, бот сам отправляет тёплое сообщение.</li>
-      <li class="rounded-xl bg-paper p-5"><b class="font-display">Два режима.</b> Покупатель в поиске или продавец в ожидании. Работает в Telegram, ничего устанавливать не нужно.</li>
+      <li class="rounded-3xl bg-sky-100 p-6"><span class="text-3xl">🧠</span><h3 class="mt-2 text-xl font-extrabold">Память о клиенте</h3><p class="mt-1 text-slate-700">Бюджет, район, тип жилья и пожелания учитываются в каждом разговоре. Вся история сохраняется в архиве сделок.</p></li>
+      <li class="rounded-3xl bg-amber-100 p-6"><span class="text-3xl">🔔</span><h3 class="mt-2 text-xl font-extrabold">Детектор готовности</h3><p class="mt-1 text-slate-700">3 и более сообщений за неделю, и вам приходит уведомление: пора звонить.</p></li>
+      <li class="rounded-3xl bg-violet-100 p-6"><span class="text-3xl">💬</span><h3 class="mt-2 text-xl font-extrabold">Пишет первым</h3><p class="mt-1 text-slate-700">Если клиент долго молчит, бот сам отправляет тёплое сообщение.</p></li>
+      <li class="rounded-3xl bg-lime/40 p-6"><span class="text-3xl">🔀</span><h3 class="mt-2 text-xl font-extrabold">Два режима</h3><p class="mt-1 text-slate-700">Покупатель в поиске или продавец в ожидании. Работает в Telegram, ничего устанавливать не нужно.</p></li>
     </ul>
   </div>
 </section>
 
 <!-- PRICING -->
 <section class="mx-auto max-w-5xl px-4 py-16">
-  <h2 class="text-3xl font-extrabold md:text-4xl">Тарифы</h2>
+  <h2 class="text-3xl font-extrabold md:text-5xl">Тарифы</h2>
   <p class="mt-2 text-slate-600">Первые 14 дней бесплатно.</p>
   <div class="mt-8 grid gap-6 md:grid-cols-2">
     <div class="rounded-2xl border border-slate-200 bg-white p-6">
@@ -166,12 +176,12 @@
       <p class="mt-3 text-slate-600">До 15 активных клиентов, покупатели и продавцы, уведомления о горячих лидах, архив сделок, поддержка в Telegram.</p>
       <a href="https://t.me/yaro_rieltor_bot" class="mt-5 inline-block rounded-xl bg-tg-dark px-6 py-2 font-semibold text-white hover:bg-tg">Открыть бота в Telegram</a>
     </div>
-    <div class="rounded-2xl border-2 border-tg bg-white p-6">
+    <div class="rounded-2xl bg-gradient-to-br from-violet to-tg-dark p-6 text-white shadow-xl">
       <span class="rounded-full bg-signal px-3 py-1 text-xs font-bold text-ink">Популярный</span>
       <h3 class="mt-2 text-xl font-bold">Про</h3>
-      <p class="mt-2 text-3xl font-extrabold">3 990 ₽<span class="text-base font-normal text-slate-500"> / мес</span></p>
-      <p class="mt-3 text-slate-600">До 50 активных клиентов, те же функции и приоритетная поддержка.</p>
-      <a href="https://t.me/yaro_rieltor_bot" class="mt-5 inline-block rounded-xl bg-tg-dark px-6 py-2 font-semibold text-white hover:bg-tg">Открыть бота в Telegram</a>
+      <p class="mt-2 text-3xl font-extrabold">3 990 ₽<span class="text-base font-normal text-white/70"> / мес</span></p>
+      <p class="mt-3 text-white/85">До 50 активных клиентов, те же функции и приоритетная поддержка.</p>
+      <a href="https://t.me/yaro_rieltor_bot" class="mt-5 inline-block rounded-xl bg-white px-6 py-2 font-bold text-ink hover:bg-lime">Открыть бота в Telegram</a>
     </div>
   </div>
 </section>
@@ -206,10 +216,10 @@
 </section>
 
 <!-- CTA + FOOTER -->
-<section class="bg-night py-14 text-center text-white">
+<section class="hero-bg py-16 text-center text-white md:py-20">
   <h2 class="text-3xl font-extrabold md:text-4xl">Попробуйте на своих клиентах</h2>
   <p class="mx-auto mt-3 max-w-xl text-slate-300">14 дней бесплатно, без установки. Откройте бота и добавьте первого клиента.</p>
-  <a href="https://t.me/yaro_rieltor_bot" class="mt-6 inline-block rounded-xl bg-tg-dark px-8 py-3 font-bold text-white hover:bg-tg">Открыть бота в Telegram</a>
+  <a href="https://t.me/yaro_rieltor_bot" class="mt-6 inline-block btn-main rounded-2xl px-8 py-4 text-lg font-extrabold transition">Открыть бота в Telegram</a>
 </section>
 <footer class="bg-ink py-6 pb-24 text-center text-sm text-slate-400 md:pb-6">
   © 2026 Агентура · Разработчик: <a class="underline" href="https://t.me/sbahmetev">@sbahmetev</a>
@@ -217,7 +227,7 @@
 
 <!-- STICKY CTA (mobile) -->
 <div class="fixed inset-x-0 bottom-0 z-10 border-t border-slate-200 bg-white/95 p-3 backdrop-blur md:hidden">
-  <a href="https://t.me/yaro_rieltor_bot" class="block rounded-xl bg-tg-dark py-3 text-center font-bold text-white">Открыть бота в Telegram</a>
+  <a href="https://t.me/yaro_rieltor_bot" class="btn-main block rounded-xl py-3 text-center font-extrabold">Открыть бота в Telegram</a>
 </div>
 
 <!-- ANALYTICS: Яндекс Метрика. YM_ID = 0 выключает счётчик, ничего не грузится. -->
